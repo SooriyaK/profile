@@ -1,0 +1,182 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Gradient Background using Pseudo-Element */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #C83C2B, #102F82);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1; /* Ensure it stays behind all content */
+    filter: blur(3px); /* Smooth out rendering */
+    animation: gradientMove 10s infinite alternate; /* Subtle gradient animation */
+}
+
+/* Card Style with Frosted Glass Effect */
+.card {
+    background: rgba(255, 255, 255, 0.3); /* Light frosted effect */
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 1.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Floating effect */
+}
+
+/* Profile Picture */
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Styles */
+.name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 10px 0 5px;
+    color: #fff;
+}
+
+/* Decorative Divider */
+.name::after {
+    content: '';
+    display: block;
+    width: 300px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: linear-gradient(90deg, #C83C2B, #102F82);
+    border-radius: 2px;
+}
+
+.description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85); /* Light white text */
+    margin-bottom: 20px;
+}
+
+
+/* Decorative Divider */
+.card::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    margin: 10px auto 20px;
+    background: linear-gradient(90deg, #C83C2B, #102F82);
+    border-radius: 2px;
+}
+
+/* Buttons/Links */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.button {
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #C83C2B, #102F82);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #102F82, #C83C2B); /* Inverted on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Glow effect */
+}
+
+/* Footer (Optional) */
+footer {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+/* Fade-In Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Responsive Design */
+
+/* For smaller devices (mobile phones) */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
