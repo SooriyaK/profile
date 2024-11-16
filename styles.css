@@ -148,3 +148,78 @@ body {
         gap: 15px;
     }
 }
+
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #C83C2B, #102F82);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Ensure scrolling for mobile devices */
+html, body {
+    height: 100%;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Card container */
+.card {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    width: 90%; /* Adapt width for mobile */
+    max-width: 500px; /* Limit max width on larger devices */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeUp 1s ease-out;
+}
+
+/* Layout Adjustments for Mobile Landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+    body {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align content to the top */
+        padding: 20px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row; /* Align content horizontally */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%; /* Utilize full width */
+        text-align: left;
+    }
+
+    .profile-pic {
+        width: 40%; /* Resize image for landscape mode */
+        margin-right: 10px;
+    }
+
+    .card-content {
+        width: 55%; /* Restrict content width for proper layout */
+    }
+
+    .links {
+        text-align: left; /* Align links to the left */
+    }
+}
+
+/* Fade-up Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
