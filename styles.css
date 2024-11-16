@@ -1,182 +1,150 @@
 /* General Reset */
-body, html {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    height: 100%;
+    background: linear-gradient(135deg, #C83C2B, #102F82);
+    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
-/* Gradient Background using Pseudo-Element */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #C83C2B, #102F82);
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -1; /* Ensure it stays behind all content */
-    filter: blur(3px); /* Smooth out rendering */
-    animation: gradientMove 10s infinite alternate; /* Subtle gradient animation */
-}
-
-/* Card Style with Frosted Glass Effect */
+/* Card Styles */
 .card {
-    background: rgba(255, 255, 255, 0.3); /* Light frosted effect */
-    backdrop-filter: blur(15px);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 400px;
     width: 90%;
-    animation: fadeIn 1.5s ease;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    transform: translateY(0);
-    transition: transform 0.3s ease-in-out;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px); /* For fade-up effect */
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px); /* Floating effect */
+.card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Profile Picture */
-.image-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-
-
 .profile-pic {
     width: 200px;
     height: 200px;
     border-radius: 30%;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Text Styles */
+/* Name Styles */
 .name {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin: 10px 0 5px;
-    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Decorative Divider */
-.name::after {
-    content: '';
-    display: block;
-    width: 300px;
+/* Styling for the Decorative Divider */
+.divider {
+    margin: 10px auto;
+    width: 50%;
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, #C83C2B, #102F82);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.end-divider {
+    margin: 10px auto;
+    width: 20%;
+    border: 0;
     height: 3px;
-    margin: 10px auto 0;
-    background: linear-gradient(90deg, #C83C2B, #102F82);
-    border-radius: 2px;
+    background: linear-gradient(to right, #C83C2B, #102F82);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: opacity 1s ease, transform 1s ease;
 }
 
+/* Specific styling for the bottom divider */
+.end-divider {
+    margin-top: 20px;
+}
+
+.divider.fade-in,
+.end-divider.fade-in {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+
+/* Description */
 .description {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.85); /* Light white text */
+    font-size: 16px;
+    color: #FFFFFF;
     margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-
-/* Decorative Divider */
-.card::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    margin: 10px auto 20px;
-    background: linear-gradient(90deg, #C83C2B, #102F82);
-    border-radius: 2px;
-}
-
-/* Buttons/Links */
+/* Links Section */
 .links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
+/* Button Styles */
 .button {
-    text-decoration: none;
+    display: inline-block;
     padding: 10px 15px;
     font-size: 1rem;
-    font-weight: 500;
-    color: white;
+    color: #FFFFFF;
+    text-decoration: none;
     border-radius: 25px;
-    background: linear-gradient(90deg, #C83C2B, #102F82);
-    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #C83C2B, #102F82);
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .button:hover {
     transform: scale(1.05);
-    background: linear-gradient(90deg, #102F82, #C83C2B); /* Inverted on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Glow effect */
 }
 
-/* Footer (Optional) */
-footer {
-    position: absolute;
-    bottom: 10px;
-    text-align: center;
-    width: 100%;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-}
-
-/* Fade-In Effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Gradient Animation */
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
-
-/* Responsive Design */
-
-/* For smaller devices (mobile phones) */
-@media (max-width: 768px) {
+/* Responsive Adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
     .card {
-        width: 90%;
-        max-width: 95%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         padding: 15px;
     }
 
-    .name {
-        font-size: 1.5rem;
+    .profile-pic {
+        margin-right: 15px;
     }
 
-    .description {
-        font-size: 0.9rem;
-    }
-
-    .button {
-        font-size: 0.9rem;
-        padding: 8px 12px;
+    .links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
 }
