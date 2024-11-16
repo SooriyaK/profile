@@ -296,3 +296,32 @@ body {
 }
 
 
+/* Set the background for the entire page, including the safe area */
+html {
+    height: 100%;
+    background: linear-gradient(145deg, #C83C2BD4, #102F82);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+}
+
+/* Prevent white areas next to the notch */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: inherit; /* Match the background to the html element */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Safe area insets for iPhone */
+@supports (padding: env(safe-area-inset-top)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
