@@ -26,7 +26,7 @@ body
 /* Set the background for the entire page, including the safe area */
 html {
     height: 100%;
-    background: radial-gradient(circle at 30% 50%, #102F82, transparent 70%),
+    background: radial-gradient(circle at 10% 50%, #102F82, transparent 70%),
                 radial-gradient(circle at 70% 30%, black, transparent 70%),
                 radial-gradient(circle at 50% 70%, #C83C2B, transparent 70%),
                 radial-gradient(circle at 70% 50%, #11998E, transparent 70%);
