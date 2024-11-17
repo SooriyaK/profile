@@ -26,11 +26,12 @@ body
 /* Set the background for the entire page, including the safe area */
 html {
     height: 100%;
-    background: radial-gradient(circle at 10% 50%, #76030f, transparent 70%),
-    radial-gradient(circle at 70% 30%, black, transparent 70%),
-    radial-gradient(circle at 50% 70%, #3a0ca3, transparent 70%),
-    radial-gradient(circle at 70% 20%, #295270,transparent 70%);
-    animation: gradientShift 20s ease infinite;
+    background: radial-gradient(circle at 30% 50%, #102F82, transparent 70%),
+                radial-gradient(circle at 70% 30%, black, transparent 70%),
+                radial-gradient(circle at 50% 70%, #C83C2B, transparent 70%),
+                radial-gradient(circle at 70% 50%, #11998E, transparent 70%);
+    background-blend-mode: screen;
+    animation: gradientShift 10s ease infinite;
     background-size: 400% 400%;
 }
 
@@ -47,6 +48,7 @@ html {
 .card {
     width: 90%;
     max-width: 500px;
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 20px;
