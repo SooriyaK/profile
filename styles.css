@@ -1,15 +1,48 @@
-/* General Reset */
-body {
+/* General Styles */
+body
+ {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #C83C2B, #102F82);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
+
+/* Safe area insets for iPhone */
+@supports (padding: env(safe-area-inset-top)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Set the background for the entire page, including the safe area */
+html {
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, #102F82, transparent 70%),
+                radial-gradient(circle at 70% 30%, black, transparent 70%),
+                radial-gradient(circle at 50% 70%, #C83C2B, transparent 70%),
+                radial-gradient(circle at 70% 50%, #11998E, transparent 70%);
+    background-blend-mode: screen;
+    animation: gradientShift 10s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* Keyframes for the dynamic background */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    40% { background-position: 100% 50%; }
+    60% { background-position: 75% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 /* Card Styles */
 .card {
@@ -19,7 +52,7 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     text-align: center;
     opacity: 0;
     transform: translateY(50px); /* For fade-up effect */
@@ -44,18 +77,27 @@ body {
 }
 
 /* Name Styles */
-.name {
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFFFFF;
-    margin-bottom: 10px;
+.name, .description, .links {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Styling for the Decorative Divider */
-.divider {
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* Decorative Divider */
+.divider, .end-divider {
     margin: 10px auto;
     width: 50%;
     border: 0;
@@ -68,37 +110,14 @@ body {
 }
 
 .end-divider {
-    margin: 10px auto;
-    width: 20%;
-    border: 0;
-    height: 3px;
-    background: linear-gradient(to right, #C83C2B, #102F82);
-    opacity: 0;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-/* Specific styling for the bottom divider */
-.end-divider {
     margin-top: 20px;
+    width: 20%;
+    height: 3px;
 }
 
-.divider.fade-in,
-.end-divider.fade-in {
+.divider.fade-in, .end-divider.fade-in {
     opacity: 1;
     transform: scaleX(1);
-}
-
-
-/* Description */
-.description {
-    font-size: 16px;
-    color: #FFFFFF;
-    margin-bottom: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
 }
 
 /* Links Section */
@@ -106,61 +125,59 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
 }
 
-/* General button styling */
+/* General Button Styling */
 .button {
-    display: block; /* Stacks buttons vertically */
+    display: block;
     text-decoration: none;
     color: white;
     padding: 10px 20px;
     border-radius: 25px;
     font-weight: bold;
     transition: all 0.3s ease;
-    margin: 10px auto; /* Centers buttons horizontally */
+    margin: 10px auto;
     text-align: center;
-    width: 300px; /* Sets a fixed width for uniformity */
-    max-width: 90%; /* Ensures buttons adapt on smaller screens */
-    box-sizing: border-box; /* Includes padding in width calculation */
-}
-
-
-/* Specific button styles */
-
-/* Antimicrobial Lab button */
-/* LinkedIn button */
-.button.linkedin {
-    background: linear-gradient(190deg, #0077B5, #00398FC4);
-}
-.button.linkedin:hover {
-    background: linear-gradient(190deg, #00398FC4, #0077B5);
-}
-.button.lab {
-    background: linear-gradient(190deg, #60606c, #2E2D2D);
-}
-.button.lab:hover {
-    background: linear-gradient(190deg, #2E2D2D, #60606c);
-}
-/* ID Labs button */
-.button.idlabs {
-    background: linear-gradient(190deg, #C83C2B, #8E44AD);
-}
-.button.idlabs:hover {
-    background: linear-gradient(190deg,  #8E44AD, #C83C2B);
-}
-/* mail button */
-.button.mail {
-    background: linear-gradient(190deg, #249ee4, #034fa0);
-}
-.button.mail:hover {
-    background: linear-gradient(190deg, #0f3464, #249ee4);
+    width: 300px;
+    max-width: 90%;
+    box-sizing: border-box;
 }
 
 .button:hover {
     transform: scale(1.05);
+}
+
+/* Specific Button Styles */
+.button.linkedin {
+    background: linear-gradient(190deg, #0077B5, #00398FC4);
+}
+
+.button.linkedin:hover {
+    background: linear-gradient(190deg, #00398FC4, #0077B5);
+}
+
+.button.lab {
+    background: linear-gradient(190deg, #60606c, #2E2D2D);
+}
+
+.button.lab:hover {
+    background: linear-gradient(190deg, #2E2D2D, #60606c);
+}
+
+.button.idlabs {
+    background: linear-gradient(190deg, #C83C2B, #102F82);
+}
+
+.button.idlabs:hover {
+    background: linear-gradient(190deg, #102F82, #C83C2B);
+}
+
+.button.mail {
+    background: linear-gradient(190deg, #249ee4, #034fa0);
+}
+
+.button.mail:hover {
+    background: linear-gradient(190deg, #0f3464, #249ee4);
 }
 
 /* Responsive Adjustments */
@@ -182,138 +199,6 @@ body {
         justify-content: center;
         gap: 15px;
     }
-}
-
-
-/* General Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(to bottom, #C83C2B, #102F82);
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Ensure scrolling for mobile devices */
-html, body {
-    height: 100%;
-    overflow-y: auto; /* Enable vertical scrolling */
-}
-
-/* Card container */
-.card {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    padding: 20px;
-    width: 90%; /* Adapt width for mobile */
-    max-width: 500px; /* Limit max width on larger devices */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    animation: fadeUp 1s ease-out;
-}
-
-/* Layout Adjustments for Mobile Landscape */
-@media (max-width: 768px) and (orientation: landscape) {
-    body {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: flex-start; /* Align content to the top */
-        padding: 20px;
-    }
-
-    .card {
-        display: flex;
-        flex-direction: row; /* Align content horizontally */
-        justify-content: space-between;
-        align-items: center;
-        width: 100%; /* Utilize full width */
-        text-align: left;
-    }
-
-    .profile-pic {
-        width: 40%; /* Resize image for landscape mode */
-        margin-right: 10px;
-    }
-
-    .card-content {
-        width: 55%; /* Restrict content width for proper layout */
-    }
-
-    .links {
-        text-align: left; /* Align links to the left */
-    }
-}
-
-/* Fade-up Animation */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: linear-gradient(145deg, #C83C2BD4, #102F82);
-    background-size: 400% 400%;
-    animation: gradientShift 10s ease infinite;
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    10% {
-        background-position: 25% 50%;
-    }
-    20% {
-        background-position: 50% 50%;
-    }
-    30% {
-        background-position: 75% 50%;
-    }
-    40% {
-        background-position: 100% 50%;
-    }
-    60% {
-        background-position: 75% 50%;
-    }
-    80% {
-        background-position: 50% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-/* Set the background for the entire page, including the safe area */
-html {
-    height: 100%;
-    background: linear-gradient(145deg, #C83C2BD4, #102F82);
-    background-size: 400% 400%;
-    animation: gradientShift 10s ease infinite;
-}
-
-/* Prevent white areas next to the notch */
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: inherit; /* Match the background to the html element */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Safe area insets for iPhone */
