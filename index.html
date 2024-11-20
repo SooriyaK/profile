@@ -13,7 +13,7 @@
         <h1 class="name">Selvam Sooriya Kannan</h1>
         <hr class="divider">
         <p class="description">
-            As a biomedical scientist specializing in infectious diseases, I focus on high-throughput antibody discovery through droplet microfluidics and leverage bioinformatics tools to advance viral research, including deep mutational scanning and next-generation sequencing. I am committed to developing innovative solutions that translate lab research into real-world health applications.
+            As a biomedical scientist specializing in infectious diseases, I focus on high-throughput antibody discovery through droplet microfluidics and leverage bioinformatic tools to advance viral research, including deep mutational scanning and next-generation sequencing. I am committed to developing innovative solutions that translate lab research into real-world health applications.
         </p>
         <div class="links">
             <a href="javascript:void(0);" class="button linkedin" onclick="openLinkedIn()">LinkedIn</a>
@@ -27,19 +27,13 @@
     <script src="script.js"></script>
     <script>
         function openLinkedIn() {
-            var profileURL = 'https://www.linkedin.com/in/sooriya-kannan-selvam-07847a191/';  // Your LinkedIn profile URL
-            var appURL = 'linkedin://profile?url=' + encodeURIComponent(profileURL);
-
-            // Try to open the LinkedIn app
-            var iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = appURL;
-            document.body.appendChild(iframe);
-
-            // Redirect to the web URL after a short timeout
-            setTimeout(function () {
-                window.location.href = profileURL;  // Fallback to the LinkedIn website if app isn't installed
-            }, 2000);  // Adjust this timeout to allow app to open
+            const profileURL = 'https://www.linkedin.com/in/sooriya-kannan-selvam-07847a191/';  // Your LinkedIn profile URL
+    
+            // Redirect to LinkedIn profile
+            window.location.href = profileURL;
+    
+            // Alternatively, open in a new tab
+            // window.open(profileURL, '_blank');
         }
     </script>
 </body>
