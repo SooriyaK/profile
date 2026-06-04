@@ -149,19 +149,19 @@ html {
 
 /* Specific Button Styles */
 .button.linkedin {
-    background: linear-gradient(190deg, #0077B5, #00398FC4);
+    background: linear-gradient(190deg, #047fc1, #02337ec4);
 }
 
 .button.linkedin:hover {
-    background: linear-gradient(190deg, #00398FC4, #0077B5);
+    background: linear-gradient(190deg, #02337ec4, #047fc1);
 }
 
 .button.lab {
-    background: linear-gradient(190deg, #60606c, #2E2D2D);
+    background: linear-gradient(190deg, #848498, #2E2D2D);
 }
 
 .button.lab:hover {
-    background: linear-gradient(190deg, #2E2D2D, #60606c);
+    background: linear-gradient(190deg, #2E2D2D, #848498);
 }
 
 .button.idlabs {
@@ -173,11 +173,11 @@ html {
 }
 
 .button.mail {
-    background: linear-gradient(190deg, #249ee4, #034fa0);
+    background: linear-gradient(190deg, #2f81d8, #022a55);
 }
 
 .button.mail:hover {
-    background: linear-gradient(190deg, #0f3464, #249ee4);
+    background: linear-gradient(190deg, #022a55, #2f81d8);
 }
 
 .button.ceastar {
