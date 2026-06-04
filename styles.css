@@ -180,6 +180,15 @@ html {
     background: linear-gradient(190deg, #0f3464, #249ee4);
 }
 
+.button.ceastar {
+    background: linear-gradient(190deg, #63b8e7, #f3722c)
+}
+
+.button.ceastar:hover {
+    background: linear-gradient(190deg, #f3722c, #63b8e7)
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) and (orientation: landscape) {
     .card {
